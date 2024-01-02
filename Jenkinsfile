@@ -7,15 +7,16 @@ pipeline {
             }
         }
 
-        // stage('Build Image'){
-        //     agent {
-        //         docker {
-        //             image 'ubuntu:latest'
-        //         }
-        //     }
-        //     steps {
-        //     docker build -t web-app ./web-vote-app .   
-        //     }
-        // }
+        stage('Build Image'){
+            steps {
+                docker build -t web-app /var/lib/jenkins/workspace/TLAB/web-vote-app .   
+            }
+            steps {
+                docker build -t worker-app /var/lib/jenkins/workspace/TLAB/vote-worker .   
+            }
+            steps {
+                docker build -t results-app /var/lib/jenkins/workspace/TLAB/results-app .   
+            }
+        }
     }
 }
