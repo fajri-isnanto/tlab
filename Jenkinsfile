@@ -9,13 +9,13 @@ pipeline {
 
         stage('Build Image'){
             steps {
-                docker build -t web-app /var/lib/jenkins/workspace/TLAB/web-vote-app .   
+            sh  docker build -t web-app /var/lib/jenkins/workspace/TLAB/web-vote-app .   
             }
             steps {
-                docker build -t worker-app /var/lib/jenkins/workspace/TLAB/vote-worker .   
+            sh  docker build -t worker-app /var/lib/jenkins/workspace/TLAB/vote-worker .   
             }
             steps {
-                docker build -t results-app /var/lib/jenkins/workspace/TLAB/results-app .   
+            sh  docker build -t results-app /var/lib/jenkins/workspace/TLAB/results-app .   
             }
         }
     }
