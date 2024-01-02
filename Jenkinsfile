@@ -7,6 +7,15 @@ pipeline {
             }
         }
         
-        
+        stage('Build Image'){
+            agent {
+                docker {
+                    image 'ubuntu'
+                }
+            }
+            steps {
+            docker build -t web-app ./web-vote-app .   
+            }
+        }
     }
 }
