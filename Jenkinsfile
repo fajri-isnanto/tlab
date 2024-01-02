@@ -6,10 +6,13 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/fajri-isnanto/tlab'
             }
         }
-
         stage('Build Image'){
             steps {
-            sh  docker build -t web-app /var/lib/jenkins/workspace/TLAB/web-vote-app .   
+                sh '''
+                        #!/bin/bash
+                        docker build -t web-app /var/lib/jenkins/workspace/TLAB/web-vote-app .   
+                        # Add more commands as needed
+                    '''
             }
             // steps {
             // sh  docker build -t worker-app /var/lib/jenkins/workspace/TLAB/vote-worker .   
